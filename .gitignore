@@ -1,5 +1,7 @@
 *
 !.gitignore
+!.tmux.conf
+!.bashrc
 
 !.config
 !.config/nvim
