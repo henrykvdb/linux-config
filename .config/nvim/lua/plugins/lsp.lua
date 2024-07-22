@@ -29,6 +29,7 @@ return {
           ensure_installed = {
               --"pyright",
               "lua_ls",
+              "verible",
               --"rust_analyzer",
               --"tsserver",
           },
