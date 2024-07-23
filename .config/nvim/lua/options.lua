@@ -38,6 +38,8 @@ vim.opt.clipboard = 'unnamedplus'
 -- Displays which-key popup sooner
 vim.opt.timeoutlen = 300
 
+vim.opt.updatetime = 300 -- Faster triggering of CursorHold events
+
 -------------------
 -- Auto commands --
 -------------------
