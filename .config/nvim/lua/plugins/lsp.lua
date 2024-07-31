@@ -22,6 +22,11 @@ return {
           {},
           vim.lsp.protocol.make_client_capabilities(),
           cmp_lsp.default_capabilities())
+      
+      -- TMP hack https://github.com/neovim/neovim/issues/29927
+      -- use local verible version instead
+      local lsp_config = require('lspconfig')
+      lsp_config.verible.setup({})
 
       require("fidget").setup({})
       require("mason").setup()
