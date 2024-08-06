@@ -1,13 +1,22 @@
 return {
   {
         "airblade/vim-gitgutter",
-        event = "LazyFile"
+        event = "VeryLazy",
+        config = function()
+            -- Document/rebind plugin keys
+            vim.g.gitgutter_map_keys = 0 -- disable plugin binds
+            vim.keymap.set("n", "]c", "<Plug>(GitGutterNextHunk)", {desc = "Next Change" })
+            vim.keymap.set("n", "[c", "<Plug>(GitGutterPrevHunk)", {desc = "Prev Change" })
+            vim.keymap.set("n", "<leader>gp", "<Plug>(GitGutterPreviewHunk)", {desc = "Preview Change" })
+            vim.keymap.set("n", "<leader>ga", "<Plug>(GitGutterStageHunk)", {desc = "Stage Change" })
+            vim.keymap.set("n", "<leader>gu", "<Plug>(GitGutterUndoHunk)", {desc = "Undo Change" })
+        end
   },
   {
         "tpope/vim-fugitive",
-        event = "LazyFile",
+        event = "VeryLazy",
         config = function()
-            vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+            vim.keymap.set("n", "<leader>gs", vim.cmd.Git, {desc = "Open staging view"})
 
             --local ThePrimeagen_Fugitive = vim.api.nvim_create_augroup("ThePrimeagen_Fugitive", {})
             --local autocmd = vim.api.nvim_create_autocmd
@@ -37,8 +46,8 @@ return {
             --})
 
 
-            vim.keymap.set("n", "gu", "<cmd>diffget //2<CR>")
-            vim.keymap.set("n", "gh", "<cmd>diffget //3<CR>")
+            --vim.keymap.set("n", "gu", "<cmd>diffget //2<CR>")
+            --vim.keymap.set("n", "gh", "<cmd>diffget //3<CR>")
         end
   }
 }
