@@ -4,15 +4,26 @@ return {
   init = function()
     -- Document keymaps
     require("which-key").add({
-      { "<leader>g", group = "Git" },
-      { "<leader>u", group = "Undo tree" },
-      { "<leader>t", group = "Trouble" },
-
+      { "<leader>u", desc="Undo tree" },
+      { "<leader>g", group="Git" },
+      { "<leader>t", group="Trouble" },
+      
       { "]d", desc="Next Diagnostic"},
       { "[d", desc="Previous Diagnostic"},
     })
   end,
   opts = {
+    plugins = {
+        -- Disable spelling module
+        spelling = { enabled = false },
+
+        -- Filter out some default binds
+        presets = {
+          --operators = false,
+          --motions = false,
+        }
+    },
+
     -- Replace icons by text
     icons = {
       mappings = false,
