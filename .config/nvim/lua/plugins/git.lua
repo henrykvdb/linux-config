@@ -6,7 +6,7 @@ return {
             -- Document/rebind plugin keys
             vim.g.gitgutter_map_keys = 0 -- disable plugin binds
             vim.keymap.set("n", "]c", "<Plug>(GitGutterNextHunk)", {desc = "Next Change" })
-            vim.keymap.set("n", "[c", "<Plug>(GitGutterPrevHunk)", {desc = "Prev Change" })
+            vim.keymap.set("n", "[c", "<Plug>(GitGutterPrevHunk)", {desc = "Previous Change" })
             vim.keymap.set("n", "<leader>gp", "<Plug>(GitGutterPreviewHunk)", {desc = "Preview Change" })
             vim.keymap.set("n", "<leader>ga", "<Plug>(GitGutterStageHunk)", {desc = "Stage Change" })
             vim.keymap.set("n", "<leader>gu", "<Plug>(GitGutterUndoHunk)", {desc = "Undo Change" })

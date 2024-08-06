@@ -2,24 +2,51 @@ return {
   'folke/which-key.nvim',
   event = "VeryLazy",
   init = function()
-    -- example how to document keys ;)
-    -- Document existing key chains
-    --require('which-key').register {
-    --  ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-    --  ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-    --  ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-    --  ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-    --  ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-    --  ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
-    --  ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
-    --}
-    ---- visual mode
-    --require('which-key').register({
-    --  ['<leader>h'] = { 'Git [H]unk' },
-    --}, { mode = 'v' })
+    -- Document keymaps
+    require("which-key").add({
+      { "<leader>g", group = "Git" },
+      { "<leader>u", group = "Undo tree" },
+      { "<leader>t", group = "Trouble" },
+
+      { "]d", desc="Next Diagnostic"},
+      { "[d", desc="Previous Diagnostic"},
+    })
   end,
   opts = {
-      -- TODO investigate triggers
-      --triggers = { '<leader>', 'g', '<c-w>', '"', '`', 'z' },
+    -- Replace icons by text
+    icons = {
+      mappings = false,
+      keys = {
+        Up = "<up>",
+        Down = "<down>",
+        Left = "<left>",
+        Right = "<right>",
+        C = "<ctrl>",
+        M = "<alt>",
+        D = "<cmd>",
+        S = "<shift>",
+        CR = "<cr>",
+        Esc = "<esc>",
+        ScrollWheelDown = "<scrollup>",
+        ScrollWheelUp = "<scrolldown>",
+        NL = "<nl>",
+        BS = "<bs>",
+        Space = "<space>",
+        Tab = "<tab> ",
+        F1 = "<f1>",
+        F2 = "<f2>",
+        F3 = "<f3>",
+        F4 = "<f4>",
+        F5 = "<f5>",
+        F6 = "<f6>",
+        F7 = "<f7>",
+        F8 = "<f8>",
+        F9 = "<f9>",
+        F10 = "<f10>",
+        F11 = "<f11>",
+        F12 = "<f12>",
+      },
+    }
   }
 }
+
