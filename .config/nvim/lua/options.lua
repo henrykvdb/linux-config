@@ -40,6 +40,8 @@ vim.opt.timeoutlen = 300
 
 vim.opt.updatetime = 300 -- Faster triggering of CursorHold events
 
+vim.opt.signcolumn = 'yes:2'
+
 -------------------
 -- Auto commands --
 -------------------

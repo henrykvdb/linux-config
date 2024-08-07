@@ -5,6 +5,7 @@ return {
         config = function()
             -- Document/rebind plugin keys
             vim.g.gitgutter_map_keys = 0 -- disable plugin binds
+            vim.g.gitgutter_sign_priority = 1 -- default prio is 10
             vim.keymap.set("n", "]c", "<Plug>(GitGutterNextHunk)", {desc = "Next Change" })
             vim.keymap.set("n", "[c", "<Plug>(GitGutterPrevHunk)", {desc = "Previous Change" })
             vim.keymap.set("n", "<leader>gp", "<Plug>(GitGutterPreviewHunk)", {desc = "Preview Change" })
