@@ -23,6 +23,23 @@ return {
           vim.lsp.protocol.make_client_capabilities(),
           cmp_lsp.default_capabilities())
 
+      -- WIP TMP HACK capabilities
+      --capabilities["textDocument"]["codeAction"]["dynamicRegistration"] = false
+      --capabilities["textDocument"]["hover"]["dynamicRegistration"] = false
+      --capabilities["textDocument"]["rename"]["dynamicRegistration"] = false
+      --capabilities["textDocument"]["formatting"]["dynamicRegistration"] = false
+      --capabilities["textDocument"]["inlayHint"]["dynamicRegistration"] = false
+      --capabilities["textDocument"]["definition"]["dynamicRegistration"] = false
+      --capabilities["textDocument"]["rangeFormatting"]["dynamicRegistration"] = false
+      --capabilities["textDocument"]["diagnostic"]["relatedDocumentSupport"] = false
+      --print(vim.inspect(capabilities))
+      --print(vim.inspect(capabilities))
+
+      -- TMP hack https://github.com/neovim/neovim/issues/29927
+      -- use local verible version instead of Mason one
+      --local lsp_config = require('lspconfig')
+      --lsp_config.verible.setup({})
+
       require("mason").setup()
       require("mason-lspconfig").setup({
         ensure_installed = {
