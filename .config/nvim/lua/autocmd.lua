@@ -1,5 +1,5 @@
 -------------------
--- Auto commands --
+-- AUTO COMMANDS --
 -------------------
 
 -- Highlight when yanking (copying) text

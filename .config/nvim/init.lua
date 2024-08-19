@@ -8,3 +8,4 @@ vim.g.maplocalleader = ' '
 require("lazy_init")
 require("options")
 require("autocmd")
+require("keymap")
