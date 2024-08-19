@@ -11,7 +11,7 @@ return {
       "hrsh7th/nvim-cmp",
       --"L3MON4D3/LuaSnip",
       --"saadparwaiz1/cmp_luasnip",
-      "j-hui/fidget.nvim", -- lsp progress messages
+      --"j-hui/fidget.nvim", -- lsp progress messages
   },
 
   config = function()
@@ -22,43 +22,38 @@ return {
           {},
           vim.lsp.protocol.make_client_capabilities(),
           cmp_lsp.default_capabilities())
-      
-      -- TMP hack https://github.com/neovim/neovim/issues/29927
-      -- use local verible version instead
-      local lsp_config = require('lspconfig')
-      lsp_config.verible.setup({})
 
-      require("fidget").setup({})
       require("mason").setup()
       require("mason-lspconfig").setup({
-          ensure_installed = {
+        ensure_installed = {
               --"pyright",
               "lua_ls",
               "verible",
               --"rust_analyzer",
               --"tsserver",
-          },
+            },
           handlers = {
               function(server_name) -- default handler (optional)
-                  require("lspconfig")[server_name].setup {
-                      capabilities = capabilities
-                  }
+                require("lspconfig")[server_name].setup {
+                  capabilities = capabilities
+                }
               end,
 
               ["lua_ls"] = function()
-                  require("lspconfig").lua_ls.setup {
-                      capabilities = capabilities,
-                      settings = {
-                          Lua = {
-                              diagnostics = {
-                                  globals = { "vim" },
-                              }
-                          }
+                require("lspconfig").lua_ls.setup {
+                  capabilities = capabilities,
+                  settings = {
+                    Lua = {
+                      diagnostics = {
+                        globals = { "vim" },
                       }
+                    }
                   }
+                }
               end,
-          }
-      })
+            }
+          })
+          --require("fidget").setup({})
 
       local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
@@ -82,16 +77,16 @@ return {
           })
       })
 
-      vim.diagnostic.config({
-          -- update_in_insert = true,
-          float = {
-              focusable = false,
-              style = "minimal",
-              border = "rounded",
-              source = "always",
-              header = "",
-              prefix = "",
-          },
-      })
+      --vim.diagnostic.config({
+      --    -- update_in_insert = true,
+      --    float = {
+      --        focusable = false,
+      --        style = "minimal",
+      --        border = "rounded",
+      --        source = "always",
+      --        header = "",
+      --        prefix = "",
+      --    },
+      --})
   end
 }
