@@ -41,16 +41,3 @@ vim.opt.timeoutlen = 300
 vim.opt.updatetime = 300 -- Faster triggering of CursorHold events
 
 vim.opt.signcolumn = 'yes:2'
-
--------------------
--- Auto commands --
--------------------
-
--- Highlight when yanking (copying) text
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
