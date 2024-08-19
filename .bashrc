@@ -1,6 +1,7 @@
 source /project/asic_fpga/tools/bash/bashrc.sh
 source /project/asic_fpga/tools/bash/bashrc-extra.sh
 
+#export PATH=/home/vanderbr/binaries/verible-v0.0-2017-g30d3d899/bin:$PATH
 export PATH=/storage/tools/nodejs/bin:$PATH
 export PATH=/storage/tools/tmux/static/3.3a:$PATH
 export PATH=/storage/tools/nvim/v0.10.0/bin:$PATH
