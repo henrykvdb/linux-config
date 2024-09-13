@@ -14,8 +14,7 @@ return {
     ensure_installed = {
       'python',
       'lua',
-      --'verilog',
-      'systemverilogcustom',
+      'verilog', -- also used for SV
       'json',
       'yaml',
       'bash',
@@ -83,29 +82,27 @@ return {
     },
   },
   config = function(_, opts)
-    
-    local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
-    parser_config.luacustom = {
+    local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+    parser_config.verilog = {
       install_info = {
-        url = "https://github.com/MunifTanjim/tree-sitter-lua",
-        files = { "src/parser.c", "src/scanner.c" },
-        --location = "tree-sitter-lua_neo/lua",
-        --revision = "a5fc8b29c5c74fe016f4da71badb9476277b5146",
-      },
-      filetype = "lua",
-      maintainers = { "@MunifTanjim" },
-    }
-    parser_config.systemverilogcustom = {
-      install_info = {
-        url = "/home/vanderbr/tree-sitter-verilog",
+        url = "https://github.com/gmlarumbe/tree-sitter-systemverilog",
         files = {"src/parser.c"},
-        --branch = "main",
-        --generate_requires_npm = false,
-        --requires_generate_from_grammar = false,
+        revision = "a04b8cb29daefacd33174111bf8ec9c9411f8659"
       },
-      filetype = "sv", -- if filetype does not match the parser name
+      filetype = "verilog", -- if filetype does not match the parser name
     }
 
+    -- Code below allows dynamically changing querries (current workaround: custom queries added in rtp)
+    --local project_path = vim.fn.fnamemodify(debug.getinfo(1, "S").source:sub(2), ":p:h:h:h")
+    --local query_files = vim.fn.globpath(project_path, "queries-fake/verilog/**", nil, true)
+    --for _, query_file in ipairs(query_files) do
+    --  local query_name = vim.fn.fnamemodify(query_file, ":t:r")
+    --  local query_content = table.concat(vim.fn.readfile(query_file), "\n")
+    --  vim.treesitter.query.set("verilog", query_name, query_content)
+    --end
+    
+    -- Use upstream instead of forked version
+    vim.treesitter.language.register('verilog', 'systemverilog')
     require("nvim-treesitter.configs").setup(opts)
   end
 }

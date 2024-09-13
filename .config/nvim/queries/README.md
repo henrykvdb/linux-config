@@ -1,0 +1,1 @@
+This folder contains custom SystemVerilog queries as I'm using another SV treesitter parser
